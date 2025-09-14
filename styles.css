@@ -1,0 +1,100 @@
+:root {
+  --green: #0FFF50;
+  --black: #111111;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --surface: #ffffff;
+  --page: #f2f4f7;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--page);
+  color: var(--text);
+}
+
+/* Stage centers the composition */
+.stage {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 24px;
+}
+
+/* Yellow board behind the card for the hero look */
+.board {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 980px);
+  height: clamp(320px, 55vh, 560px);
+  background: var(--black);
+  border-radius: 18px;
+  box-shadow: 0 28px 55px rgba(17,17,17,.18);
+}
+
+/* The card */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface);
+  border: 1px solid var(--black);
+  border-radius: var(--radius);
+  box-shadow: 10px 10px 0 var(--black);
+  overflow: hidden;
+}
+
+.thumb { margin: 16px 16px 0; border-radius: 12px; overflow: hidden; }
+.thumb .art { display: block; width: 100%; height: auto; }
+
+.body { padding: 20px 24px 24px; }
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  background: var(--green);
+  color: var(--black);
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.date {
+  margin: 12px 0 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.title {
+  font-size: 1.55rem;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.title a { color: inherit; text-decoration: none; }
+.title:hover { color: var(--yellow); }
+
+.excerpt {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.author { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; display: block; }
+.name { font-weight: 800; }
+
+@media (min-width: 560px) {
+  .card { border-radius: 18px; }
+  .thumb { margin: 18px 18px 0; border-radius: 14px; }
+  .body { padding: 22px 24px 26px; }
+}
+
